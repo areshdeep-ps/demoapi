@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-library identifier: 'PsObaiLib', changelog: false
+library identifier: 'sharedlib', changelog: false
 node {
 	try {
 		stage ('Continuous Integration'){
