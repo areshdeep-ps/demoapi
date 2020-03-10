@@ -1,5 +1,3 @@
-#!/usr/bin/groovy
-library identifier: 'sharedlib', changelog: false
 node {
 	try {
 		stage ('Continuous Integration'){
