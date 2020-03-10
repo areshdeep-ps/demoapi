@@ -12,6 +12,7 @@ node {
         	}
 		stage ('Quality scan') {  
 			env.STAGE = 'Quality scan'
+			startZap(host: "http://microservice2-myproject.192.168.64.8.nip.io/", port: 8080, timeout: 900, zapHome: "/opt/zaproxy", allowedHosts:['http://microservice2-myproject.192.168.64.8.nip.io/'], sessionPath:"/path/to/session.session")
 			// Run Qulaity scans
 			currentBuild.result = "SUCCESS"
         	}
