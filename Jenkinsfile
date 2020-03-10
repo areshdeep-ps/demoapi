@@ -2,7 +2,6 @@ node {
 	try {
 		stage ('Continuous Integration'){
 			env.STAGE = 'Continuous Integration'
-			gitCheckoutAll{}
 			dir('devops'){
 				checkoutUrl(["https://github.com/areshdeep-ps/demoapi.git"], "Master")
 			}
