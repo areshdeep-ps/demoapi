@@ -3,7 +3,7 @@ node {
 		stage ('Continuous Integration'){
 			env.STAGE = 'Continuous Integration'
 			dir('devops'){
-				checkoutUrl(["https://github.com/areshdeep-ps/demoapi.git"], "Master")
+				//checkoutUrl(["https://github.com/areshdeep-ps/demoapi.git"], "Master")
 			}
 			currentBuild.result = "SUCCESS"
 		}
