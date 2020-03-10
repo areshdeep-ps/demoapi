@@ -1,0 +1,25 @@
+#!/usr/bin/groovy
+library identifier: 'PsObaiLib', changelog: false
+node {
+	try {
+		stage ('Continuous Integration'){
+			env.STAGE = 'Continuous Integration'
+			cleanWs()
+			gitCheckoutAll{}
+			dir('devops'){
+				checkoutUrl(["https://github.com/areshdeep-ps/demoapi.git"], "Master")
+			}
+			currentBuild.result = "SUCCESS"
+		}
+		
+		stage ('Quality scan') {  
+			env.STAGE = 'Quality scan'
+			currentBuild.result = "SUCCESS"
+        }
+	}
+	catch(err) {        	
+        println "[ERROR]: Build Failed"
+		currentBuild.result = "FAILED"
+		throw err            
+	}
+}
